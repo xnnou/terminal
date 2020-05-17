@@ -4,7 +4,7 @@ set nocompatible
 " specify encoding
 set encoding=utf-8
 " specify file encoding
-set fileencodings=utf-8,iso-2022-jp,sjis,euc-jp
+set fileencodings=utf-8
 " specify file formats
 set fileformats=unix,dos
 " take backup
