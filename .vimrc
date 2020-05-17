@@ -1,4 +1,4 @@
-# https://www.server-world.info/en/note?os=Ubuntu_18.04&p=initial_conf&f=6
+" https://www.server-world.info/en/note?os=Ubuntu_18.04&p=initial_conf&f=6
 " use extended feature of vim (no compatible with vi)
 set nocompatible
 " specify encoding
@@ -27,8 +27,6 @@ set incsearch
 " show line number
 " if not, specify [ set nonumber ]
 set number
-" Visualize break ( $ ) or tab ( ^I )
-set list
 " highlights parentheses
 set showmatch
 " enable auto indent
