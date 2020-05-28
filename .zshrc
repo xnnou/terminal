@@ -8,7 +8,9 @@ ZSH_THEME="bira"
 #ZSH_THEME=""
 
 plugins=( git 
-	zsh-autosuggestions )
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	zsh-completions  )
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
