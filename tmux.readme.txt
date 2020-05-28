@@ -1,0 +1,18 @@
+readme more:
+https://medium.com/@joe_wolfe_21/the-ultimate-terminal-67e93665459d
+
+https://github.com/namtzigla/oh-my-tmux
+$ cd
+$ git clone https://github.com/gpakosz/.tmux.git
+$ ln -s -f .tmux/.tmux.conf
+$ cp .tmux/.tmux.conf.local .
+
+# adding mouse 
+https://github.com/mintisan/oh-my-tmux/blob/master/tmux.conf
+
+# handling the mouse
+# http://stackoverflow.com/questions/30185210/ubuntu-change-tmux-1-8-to-tmux-next-1-9
+set -g mouse-utf8 on
+set -g mouse on
+bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
+bind -n WheelDownPane select-pane -t= \;                 send-keys -M
