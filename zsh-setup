@@ -1,0 +1,48 @@
+git clone https://github.com/zsh-users/example.git ~/.oh-my-zsh/custom/plugins/zsh-example
+
+
+
+
+
+# .zshrc
+export ZSH=$HOME/.oh-my-zsh
+# https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
+ZSH_THEME="bira"
+#ZSH_THEME="xiong-chiamiov"
+
+plugins=( git 
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	zsh-completions
+  example )
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+bindkey '^ ' autosuggest-accept
+bindkey "\033[1~" beginning-of-line
+bindkey "\033[4~" end-of-line
+
+# Kubernetes commands
+alias k="kubectl"
+alias kexec="kubectl exec"
+alias kget="kubectl get"
+alias knodes="kubectl get node"
+alias kpods="kubectl get pods"
+alias ksvc="kubectl get svc"
+alias kpv="kubectl get pv"
+alias kpvc="kubectl get pvc"
+alias kapply="kubectl apply"
+alias kdel="kubectl delete"
+alias klogs="kubectl logs"
+alias kexec="kubectl exect -it"
+alias kdash="kubectl proxy > /dev/null 2>&1 &"
+
+
+# https://3os.org/guides/BetterTerminal/
+## Fix for Slow zsh-autosuggestions copy&paste
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
