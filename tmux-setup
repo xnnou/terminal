@@ -1,0 +1,32 @@
+1. install tmux
+2. install Tmux Plugin Manager
+https://github.com/tmux-plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux.conf
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm' 
+
+3. Enable feature;
+	- mouse
+	set -g mouse on 
+	
+	- cpu 
+	https://github.com/tmux-plugins/tmux-cpu
+	git clone https://github.com/tmux-plugins/tmux-cpu.git ~/.tmux/plugins/tmux-cpu
+	~/.tmux.conf
+	set -g @plugin 'tmux-plugins/tmux-cpu'
+	set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | %a %h-%d %H:%M '
+
+	- battery
+	https://github.com/tmux-plugins/tmux-battery
+	git clone https://github.com/tmux-plugins/tmux-battery ~/.tmux/plugins/tmux-battery
+	~/.tmux.conf
+	set -g @plugin 'tmux-plugins/tmux-battery'
+	set -g status-right '#{battery_status_bg} Batt: #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M '
