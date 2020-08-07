@@ -1,0 +1,42 @@
+Powerline on bash vim tmux fish
+https://devpro.media/install-powerline-ubuntu/#
+https://powerline.readthedocs.io/en/master/usage/shell-prompts.html
+
+#--- Powerline ---#
+sudo add-apt-repository universe
+sudo apt install --yes powerline
+
+#--- Bash ---#
+vim .bashrc
+# powerline 07-Aug-2020
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  source /usr/share/powerline/bindings/bash/powerline.sh
+fi
+
+source ~/.bashrc
+
+#--- VIM ---#
+sudo apt update
+sudo apt install --yes vim
+
+vim .vimcr
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+set laststatus=2
+
+
+#--- tmux ---#
+vim .tmux.conf
+set -g default-terminal "screen-256color"
+source "/usr/share/powerline/bindings/tmux/powerline.conf"
+
+#--- fish ---#
+vim .config/fish/config.fish
+
+set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
+source /usr/share/powerline/bindings/fish/powerline-setup.fish
+powerline-setup
