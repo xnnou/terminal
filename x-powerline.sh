@@ -3,6 +3,7 @@
 # https://devpro.media/install-powerline-ubuntu/#
 # https://powerline.readthedocs.io/en/master/usage/shell-prompts.html
 # We only tested on Ubuntu 20.04
+sudo apt install tmux fish htop net-tools -y
 
 #--- Powerline ---#
 echo '--- Powerline ---'
