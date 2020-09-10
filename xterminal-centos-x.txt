@@ -1,0 +1,43 @@
+# xterminal-centos-x
+# Date: 10-Sep-2020
+sudo yum install-y epel-release
+sudo yum update -y 
+#
+#--------------------------------#
+# CentOs 8
+# sudo hostnamectl set-hostname centos8
+yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+#
+
+#
+yum install -y htop fish tmux vim net-tools 
+# Clean up 
+/usr/local/k85/iptables
+
+# xterminal
+sudo yum install python-pip3 git 
+sudo pip3 install git+git://github.com/Lokaltog/powerline
+sudo pip3 show powerline-status
+
+# /usr/local/lib/python3.6/site-packages
+
+# bash 
+echo 'if [ -f /usr/local/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh ]; then
+    source /usr/local/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
+fi' >> ~/.bashrc
+
+
+# vim 
+echo 'set rtp+=/usr/local/lib/python3.6/site-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256' >> ~/.vimrc
+
+
+# tmux 
+echo 'source "/usr/local/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf"' >> .tmux.conf
+
+# fish
+
+echo 'set fish_function_path $fish_function_path "/usr/local/lib/python3.6/site-packages/powerline/bindings/fish"
+source /usr/local/lib/python3.6/site-packages/powerline/bindings/fish/powerline-setup.fish 
+powerline-setup' > ~/.config/fish/config.fish
