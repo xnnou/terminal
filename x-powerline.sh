@@ -10,40 +10,19 @@ pip install powerline-shell
 # git clone https://github.com/b-ryan/powerline-shell.git
 cd powerline-shell
 python setup.py install
-~.bashrc
 
+echo'
 function _update_ps1() {
     PS1=$(powerline-shell $?)
 }
-
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+fi' > ~.bashrc
 
-~/.config/fish/config.fish
-fish
+echo 'fish
 function fish_prompt
     powerline-shell --shell bare $status
-end
-
-
-#--- Powerline ---#
-echo '--- Powerline ---'
-sudo add-apt-repository universe
-sudo apt install -y powerline
-
-#--- Bash ---#
-echo '--- Bash ---'
-echo '# powerline 07-Aug-2020
-if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source /usr/share/powerline/bindings/bash/powerline.sh
-fi' >> ~/.bashrc
-
-source ~/.bashrc
-
+end ' > ~/.config/fish/config.fish
 
 #--- VIM ---#
 echo '--- VIM ---'
@@ -55,14 +34,7 @@ python3 powerline_setup()
 python3 del powerline_setup
 set laststatus=2' > ~/.vimrc
 
-
 #--- tmux ---#
 echo '--- tmux ---'
 echo 'set -g default-terminal "screen-256color"
 source "/usr/share/powerline/bindings/tmux/powerline.conf"' > ~/.tmux.conf
-
-#--- fish ---#
-echo '--- fish ---'
-echo 'set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
-source /usr/share/powerline/bindings/fish/powerline-setup.fish
-powerline-setup' > ~/.config/fish/config.fish
