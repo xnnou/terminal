@@ -5,6 +5,28 @@
 # We only tested on Ubuntu 20.04
 sudo apt install tmux fish htop net-tools -y
 
+pip install powerline-shell
+# https://github.com/b-ryan/powerline-shell.git
+# git clone https://github.com/b-ryan/powerline-shell.git
+cd powerline-shell
+python setup.py install
+~.bashrc
+
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
+~/.config/fish/config.fish
+fish
+function fish_prompt
+    powerline-shell --shell bare $status
+end
+
+
 #--- Powerline ---#
 echo '--- Powerline ---'
 sudo add-apt-repository universe
