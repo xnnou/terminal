@@ -1,11 +1,13 @@
 # Date: 11-Aug-2020
+# Update: 25-Nov-2020
 # X-Powerline for bash vim tmux fish
 # https://devpro.media/install-powerline-ubuntu/#
 # https://powerline.readthedocs.io/en/master/usage/shell-prompts.html
 # We only tested on Ubuntu 20.04
 sudo apt install tmux fish htop net-tools -y
+sudo apt install python3 python3-pip
 
-pip install powerline-shell
+pip3 install powerline-shell
 # https://github.com/b-ryan/powerline-shell.git
 # git clone https://github.com/b-ryan/powerline-shell.git
 cd powerline-shell
