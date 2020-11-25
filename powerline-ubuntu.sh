@@ -5,16 +5,15 @@
 # https://powerline.readthedocs.io/en/master/usage/shell-prompts.html
 # We only tested on Ubuntu 20.04
 sudo apt install tmux fish htop net-tools -y
-sudo apt install python3 python3-pip
+sudo apt install python 
 
-pip3 install powerline-shell
+pip install powerline-shell
 # https://github.com/b-ryan/powerline-shell.git
-# git clone https://github.com/b-ryan/powerline-shell.git
+git clone https://github.com/b-ryan/powerline-shell.git
 cd powerline-shell
-python setup.py install
+sudo python3 setup.py install
 
-echo'
-function _update_ps1() {
+echo 'function _update_ps1() {
     PS1=$(powerline-shell $?)
 }
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
